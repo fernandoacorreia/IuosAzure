@@ -9,6 +9,9 @@ using System.Data.Objects;
 using IousAzure.Entidades;
 using System.Data.Entity.Infrastructure;
 
+// VER Service Operation Considerations
+// http://social.technet.microsoft.com/wiki/contents/articles/5234.aspx
+
 namespace IousAzure.Servico
 {
     // http://code.msdn.microsoft.com/Code-First-Northwind-Data-874c947b
@@ -40,6 +43,9 @@ namespace IousAzure.Servico
 
             // Get the underlying ObjectContext for the DbContext.
             var objectContext = ((IObjectContextAdapter)contextoBd).ObjectContext;
+
+            // Disable proxy creation as this messes up the data service.
+            objectContext.ContextOptions.ProxyCreationEnabled = false; 
 
             // Return the underlying context.
             return objectContext;

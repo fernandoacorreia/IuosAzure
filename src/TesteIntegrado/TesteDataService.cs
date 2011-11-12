@@ -6,6 +6,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading;
 using System.ServiceModel.Web;
 using System.Data.Services.Client;
+using IousAzure.TesteIntegrado.ReferenciaAoServico;
+
+// VER MAIS EXEMPLOS DE CÓDIGO EM:
+// http://aspdotnetcode.source-of-humor.com/Articles/WCF-WebServices/ConsumingWCFDataServiceEntityDataModel.aspx
+// http://blog.csdn.net/linyusen/article/details/4022642
 
 namespace TesteIntegrado
 {
@@ -15,16 +20,24 @@ namespace TesteIntegrado
     [TestClass]
     public class TesteDataService
     {
-        private static readonly Uri serviceUri = new Uri("http://localhost:58036/WcfDataService1.svc/");
+        private static readonly Uri serviceUri = new Uri("http://localhost:51048/WcfDataService1.svc/");
 
         [TestMethod]
-        public void DevemHaverDoisInquilinos()
+        public void DeveIncluirInquilino()
         {
-            DataServiceContext contexto = new DataServiceContext(serviceUri);
-            DataServiceQuery query = contexto.CreateQuery<ReferenciaAoServico.Inquilino>("Inquilinos");
-            var results = contexto.Execute<ReferenciaAoServico.Inquilino>(query.RequestUri);
-            int quantidadeInquilinos = results.Count<ReferenciaAoServico.Inquilino>();
-            Assert.AreEqual(2, quantidadeInquilinos);
+            ContextoBd contextoBd = new ContextoBd(serviceUri);
+            string nomeInquilino = "Inquilino teste " + System.DateTime.UtcNow.ToString("o");
+            Inquilino novoInquilino = new Inquilino { Nome = nomeInquilino };
+
+            contextoBd.AddToInquilinos(novoInquilino);
+            contextoBd.SaveChanges();
+
+            var registros = from inquilino
+                            in contextoBd.Inquilinos
+                            where inquilino.Id == novoInquilino.Id
+                            select inquilino;
+            var registro = registros.Single<Inquilino>();
+            Assert.AreEqual(nomeInquilino, registro.Nome);
         }
     }
 }

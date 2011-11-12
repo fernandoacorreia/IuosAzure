@@ -9,8 +9,8 @@
     <ProjectGuid>{7377D7E1-45BF-440F-A888-48A21E1F58C7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TesteIntegrado</RootNamespace>
-    <AssemblyName>TesteIntegrado</AssemblyName>
+    <RootNamespace>IousAzure.TesteIntegrado</RootNamespace>
+    <AssemblyName>IousAzure.TesteIntegrado</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

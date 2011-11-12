@@ -9,8 +9,8 @@
 //------------------------------------------------------------------------------
 
 // Original file name:
-// Generation date: 11/8/2011 10:29:32 AM
-namespace TesteIntegrado.ReferenciaAoServico
+// Generation date: 11/8/2011 11:16:12 AM
+namespace IousAzure.TesteIntegrado.ReferenciaAoServico
 {
     
     /// <summary>
@@ -40,7 +40,7 @@ namespace TesteIntegrado.ReferenciaAoServico
         {
             if (typeName.StartsWith("IousAzure.Entidades", global::System.StringComparison.Ordinal))
             {
-                return this.GetType().Assembly.GetType(string.Concat("TesteIntegrado.ReferenciaAoServico", typeName.Substring(19)), false);
+                return this.GetType().Assembly.GetType(string.Concat("IousAzure.TesteIntegrado.ReferenciaAoServico", typeName.Substring(19)), false);
             }
             return null;
         }
@@ -52,7 +52,7 @@ namespace TesteIntegrado.ReferenciaAoServico
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         protected string ResolveNameFromType(global::System.Type clientType)
         {
-            if (clientType.Namespace.Equals("TesteIntegrado.ReferenciaAoServico", global::System.StringComparison.Ordinal))
+            if (clientType.Namespace.Equals("IousAzure.TesteIntegrado.ReferenciaAoServico", global::System.StringComparison.Ordinal))
             {
                 return string.Concat("IousAzure.Entidades.", clientType.Name);
             }

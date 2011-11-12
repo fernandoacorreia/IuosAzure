@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>IousAzure</title>
+    <link href="Styles/Site.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/redmond/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>
+                    IousAzure
+                </h1>
+            </div>
+            <div class="loginDisplay"></div>
+            <div class="clear hideSkiplink"></div>
+        </div>
+        <div class="main">
+            <div id="formulario_solicitacao" title="Nova solicitação">
+	            <p class="validateTips">Todos os campos são obrigatórios.</p>
+	            <form>
+	            <fieldset>
+		            <label for="descricao">Descrição</label>
+                    <textarea name="descricao" id="descricao" multiline=true cols=40 rows=4 class="ui_widget_content ui_corner_all"></textarea>
+                    <div id="carregando" style="display:none">Carregando...</div>
+	            </fieldset>
+	            </form>
+            </div>
+            <div id="minhas_solicitacoes" class="ui_widget">
+	            <h1>Minhas solicitações:</h1>
+	            <table id="minhas_solicitacoes" class="ui_widget ui_widget_content">
+			            <tr class="ui_widget_header ">
+				            <th>Data</th>
+				            <th>Descrição</th>
+				            <th>Valor total</th>
+                            <th>Situação</th>
+			            </tr>			            
+	            </table>
+                <button id="criar_solicitacao">Criar solicitação</button>
+                <button id="atualizar_solicitacoes">Atualizar</button>
+                <span id="carregando_solicitacoes" style="display:none">Carregando...</span>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="footer"></div>
+    </div>
+    <script type="text/javascript" src="Scripts/jquery-1.7.min.js"></script>
+    <script type="text/javascript" src="Scripts/jquery-ui-1.8.16.custom.min.js"></script>
+    <script type="text/javascript" src="Scripts/datajs-1.0.2.min.js"></script>
+    <script type="text/javascript" src="Scripts/jquery.tmpl.min.js"></script>
+    <script type="text/javascript" src="Scripts/IousAzure.js"></script>
+    <script type="text/javascript">
+        $(OnPageLoad)
+    </script>
+</body>
+</html>
