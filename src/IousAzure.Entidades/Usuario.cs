@@ -14,8 +14,8 @@ namespace IousAzure.Entidades
         public string HashDaSenha { get; set; }
         public int InquilinoId { get; set; }
     
-        public virtual Inquilino Inquilino { get; set; }
-        public virtual ICollection<Solicitacao> SolicitacoesDoUsuario { get; set; }
-        public virtual ICollection<Solicitacao> SolicitacoesAAvaliar { get; set; }
+        //public virtual Inquilino Inquilino { get; set; }
+        //public virtual ICollection<Solicitacao> SolicitacoesDoUsuario { get; set; }
+        //public virtual ICollection<Solicitacao> SolicitacoesAAvaliar { get; set; }
     }
 }

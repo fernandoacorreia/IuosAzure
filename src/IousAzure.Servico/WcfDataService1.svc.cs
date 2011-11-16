@@ -21,8 +21,13 @@ namespace IousAzure.Servico
         // This method is called only once to initialize service-wide policies.
         public static void InitializeService(DataServiceConfiguration config)
         {
+#if DEBUG
+            config.UseVerboseErrors = true;
+#endif
+
             // We need to explicitly set the less restrictive rights.
             config.SetEntitySetAccessRule("Inquilinos", EntitySetRights.All);
+            config.SetEntitySetAccessRule("Solicitacoes", EntitySetRights.All);
 
             // Set the remaining entity sets to read all.
             config.SetEntitySetAccessRule("*", EntitySetRights.AllRead);
@@ -49,6 +54,19 @@ namespace IousAzure.Servico
 
             // Return the underlying context.
             return objectContext;
+        }
+
+        [ChangeInterceptor("Solicitacoes")]
+        public void OnChangeSolicitacoes(Solicitacao solicitacao, UpdateOperations operacao)
+        {
+            if (operacao == UpdateOperations.Add)
+            {
+                solicitacao.InquilinoId = 1;  // Inquilino fixo para demonstração
+                solicitacao.Criacao = System.DateTime.UtcNow;
+                solicitacao.UsuarioSolicitanteId = 1;  // Usuário fixo para demonstração
+                solicitacao.UsuarioAvaliadorId = 2;  // Usuário fixo para demonstração
+                solicitacao.Situacao = "EM AVALIAÇÃO";
+            }
         }
     }
 }

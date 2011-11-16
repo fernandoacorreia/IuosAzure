@@ -7,8 +7,8 @@
         </Key>
         <Property Name="Id" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
         <Property Name="Nome" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
-        <NavigationProperty Name="Usuarios" Relationship="IousAzure.Entidades.Usuario_Inquilino" FromRole="Usuario_Inquilino_Target" ToRole="Usuario_Inquilino_Source" />
-        <NavigationProperty Name="Solicitacoes" Relationship="IousAzure.Entidades.Solicitacao_Inquilino" FromRole="Solicitacao_Inquilino_Target" ToRole="Solicitacao_Inquilino_Source" />
+        <NavigationProperty Name="Usuarios" Relationship="IousAzure.Entidades.Inquilino_Usuarios" FromRole="Inquilino_Usuarios_Source" ToRole="Inquilino_Usuarios_Target" />
+        <NavigationProperty Name="Solicitacoes" Relationship="IousAzure.Entidades.Inquilino_Solicitacoes" FromRole="Inquilino_Solicitacoes_Source" ToRole="Inquilino_Solicitacoes_Target" />
       </EntityType>
       <EntityType Name="Usuario">
         <Key>
@@ -20,9 +20,6 @@
         <Property Name="SaltDaSenha" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
         <Property Name="HashDaSenha" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
         <Property Name="InquilinoId" Type="Edm.Int32" Nullable="false" />
-        <NavigationProperty Name="Inquilino" Relationship="IousAzure.Entidades.Usuario_Inquilino" FromRole="Usuario_Inquilino_Source" ToRole="Usuario_Inquilino_Target" />
-        <NavigationProperty Name="SolicitacoesDoUsuario" Relationship="IousAzure.Entidades.Usuario_SolicitacoesDoUsuario" FromRole="Usuario_SolicitacoesDoUsuario_Source" ToRole="Usuario_SolicitacoesDoUsuario_Target" />
-        <NavigationProperty Name="SolicitacoesAAvaliar" Relationship="IousAzure.Entidades.Usuario_SolicitacoesAAvaliar" FromRole="Usuario_SolicitacoesAAvaliar_Source" ToRole="Usuario_SolicitacoesAAvaliar_Target" />
       </EntityType>
       <EntityType Name="Solicitacao">
         <Key>
@@ -32,14 +29,10 @@
         <Property Name="InquilinoId" Type="Edm.Int32" Nullable="false" />
         <Property Name="UsuarioSolicitanteId" Type="Edm.Int32" Nullable="false" />
         <Property Name="UsuarioAvaliadorId" Type="Edm.Int32" Nullable="false" />
-        <Property Name="Data" Type="Edm.DateTime" Nullable="false" />
+        <Property Name="Criacao" Type="Edm.DateTime" Nullable="false" />
         <Property Name="Descricao" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
         <Property Name="Situacao" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
         <Property Name="ValorTotal" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" />
-        <NavigationProperty Name="Inquilino" Relationship="IousAzure.Entidades.Solicitacao_Inquilino" FromRole="Solicitacao_Inquilino_Source" ToRole="Solicitacao_Inquilino_Target" />
-        <NavigationProperty Name="UsuarioSolicitante" Relationship="IousAzure.Entidades.Solicitacao_UsuarioSolicitante" FromRole="Solicitacao_UsuarioSolicitante_Source" ToRole="Solicitacao_UsuarioSolicitante_Target" />
-        <NavigationProperty Name="UsuarioAvaliador" Relationship="IousAzure.Entidades.Solicitacao_UsuarioAvaliador" FromRole="Solicitacao_UsuarioAvaliador_Source" ToRole="Solicitacao_UsuarioAvaliador_Target" />
-        <NavigationProperty Name="Itens" Relationship="IousAzure.Entidades.SolicitacaoItem_Solicitacao" FromRole="SolicitacaoItem_Solicitacao_Target" ToRole="SolicitacaoItem_Solicitacao_Source" />
       </EntityType>
       <EntityType Name="SolicitacaoItem">
         <Key>
@@ -60,59 +53,31 @@
         <Property Name="Id" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
         <Property Name="ModelHash" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
       </EntityType>
-      <Association Name="Usuario_Inquilino">
-        <End Role="Usuario_Inquilino_Source" Type="IousAzure.Entidades.Usuario" Multiplicity="*" />
-        <End Role="Usuario_Inquilino_Target" Type="IousAzure.Entidades.Inquilino" Multiplicity="1">
+      <Association Name="Inquilino_Usuarios">
+        <End Role="Inquilino_Usuarios_Source" Type="IousAzure.Entidades.Inquilino" Multiplicity="1">
           <OnDelete Action="Cascade" />
         </End>
+        <End Role="Inquilino_Usuarios_Target" Type="IousAzure.Entidades.Usuario" Multiplicity="*" />
         <ReferentialConstraint>
-          <Principal Role="Usuario_Inquilino_Target">
+          <Principal Role="Inquilino_Usuarios_Source">
             <PropertyRef Name="Id" />
           </Principal>
-          <Dependent Role="Usuario_Inquilino_Source">
+          <Dependent Role="Inquilino_Usuarios_Target">
             <PropertyRef Name="InquilinoId" />
           </Dependent>
         </ReferentialConstraint>
       </Association>
-      <Association Name="Solicitacao_Inquilino">
-        <End Role="Solicitacao_Inquilino_Source" Type="IousAzure.Entidades.Solicitacao" Multiplicity="*" />
-        <End Role="Solicitacao_Inquilino_Target" Type="IousAzure.Entidades.Inquilino" Multiplicity="1">
+      <Association Name="Inquilino_Solicitacoes">
+        <End Role="Inquilino_Solicitacoes_Source" Type="IousAzure.Entidades.Inquilino" Multiplicity="1">
           <OnDelete Action="Cascade" />
         </End>
+        <End Role="Inquilino_Solicitacoes_Target" Type="IousAzure.Entidades.Solicitacao" Multiplicity="*" />
         <ReferentialConstraint>
-          <Principal Role="Solicitacao_Inquilino_Target">
+          <Principal Role="Inquilino_Solicitacoes_Source">
             <PropertyRef Name="Id" />
           </Principal>
-          <Dependent Role="Solicitacao_Inquilino_Source">
+          <Dependent Role="Inquilino_Solicitacoes_Target">
             <PropertyRef Name="InquilinoId" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
-      <Association Name="Solicitacao_UsuarioSolicitante">
-        <End Role="Solicitacao_UsuarioSolicitante_Source" Type="IousAzure.Entidades.Solicitacao" Multiplicity="*" />
-        <End Role="Solicitacao_UsuarioSolicitante_Target" Type="IousAzure.Entidades.Usuario" Multiplicity="1">
-          <OnDelete Action="Cascade" />
-        </End>
-        <ReferentialConstraint>
-          <Principal Role="Solicitacao_UsuarioSolicitante_Target">
-            <PropertyRef Name="Id" />
-          </Principal>
-          <Dependent Role="Solicitacao_UsuarioSolicitante_Source">
-            <PropertyRef Name="UsuarioSolicitanteId" />
-          </Dependent>
-        </ReferentialConstraint>
-      </Association>
-      <Association Name="Solicitacao_UsuarioAvaliador">
-        <End Role="Solicitacao_UsuarioAvaliador_Source" Type="IousAzure.Entidades.Solicitacao" Multiplicity="*" />
-        <End Role="Solicitacao_UsuarioAvaliador_Target" Type="IousAzure.Entidades.Usuario" Multiplicity="1">
-          <OnDelete Action="Cascade" />
-        </End>
-        <ReferentialConstraint>
-          <Principal Role="Solicitacao_UsuarioAvaliador_Target">
-            <PropertyRef Name="Id" />
-          </Principal>
-          <Dependent Role="Solicitacao_UsuarioAvaliador_Source">
-            <PropertyRef Name="UsuarioAvaliadorId" />
           </Dependent>
         </ReferentialConstraint>
       </Association>
@@ -130,14 +95,6 @@
           </Dependent>
         </ReferentialConstraint>
       </Association>
-      <Association Name="Usuario_SolicitacoesDoUsuario">
-        <End Role="Usuario_SolicitacoesDoUsuario_Source" Type="IousAzure.Entidades.Usuario" Multiplicity="0..1" />
-        <End Role="Usuario_SolicitacoesDoUsuario_Target" Type="IousAzure.Entidades.Solicitacao" Multiplicity="*" />
-      </Association>
-      <Association Name="Usuario_SolicitacoesAAvaliar">
-        <End Role="Usuario_SolicitacoesAAvaliar_Source" Type="IousAzure.Entidades.Usuario" Multiplicity="0..1" />
-        <End Role="Usuario_SolicitacoesAAvaliar_Target" Type="IousAzure.Entidades.Solicitacao" Multiplicity="*" />
-      </Association>
     </Schema>
     <Schema Namespace="System.Data.Objects" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
       <EntityContainer Name="ContextoBd" m:IsDefaultEntityContainer="true">
@@ -146,33 +103,17 @@
         <EntitySet Name="Solicitacoes" EntityType="IousAzure.Entidades.Solicitacao" />
         <EntitySet Name="SolicitacaoItens" EntityType="IousAzure.Entidades.SolicitacaoItem" />
         <EntitySet Name="EdmMetadatas" EntityType="IousAzure.Entidades.EdmMetadata" />
-        <AssociationSet Name="Usuario_Inquilino" Association="IousAzure.Entidades.Usuario_Inquilino">
-          <End Role="Usuario_Inquilino_Source" EntitySet="Usuarios" />
-          <End Role="Usuario_Inquilino_Target" EntitySet="Inquilinos" />
+        <AssociationSet Name="Inquilino_Usuarios" Association="IousAzure.Entidades.Inquilino_Usuarios">
+          <End Role="Inquilino_Usuarios_Source" EntitySet="Inquilinos" />
+          <End Role="Inquilino_Usuarios_Target" EntitySet="Usuarios" />
         </AssociationSet>
-        <AssociationSet Name="Solicitacao_Inquilino" Association="IousAzure.Entidades.Solicitacao_Inquilino">
-          <End Role="Solicitacao_Inquilino_Source" EntitySet="Solicitacoes" />
-          <End Role="Solicitacao_Inquilino_Target" EntitySet="Inquilinos" />
-        </AssociationSet>
-        <AssociationSet Name="Solicitacao_UsuarioSolicitante" Association="IousAzure.Entidades.Solicitacao_UsuarioSolicitante">
-          <End Role="Solicitacao_UsuarioSolicitante_Source" EntitySet="Solicitacoes" />
-          <End Role="Solicitacao_UsuarioSolicitante_Target" EntitySet="Usuarios" />
-        </AssociationSet>
-        <AssociationSet Name="Solicitacao_UsuarioAvaliador" Association="IousAzure.Entidades.Solicitacao_UsuarioAvaliador">
-          <End Role="Solicitacao_UsuarioAvaliador_Source" EntitySet="Solicitacoes" />
-          <End Role="Solicitacao_UsuarioAvaliador_Target" EntitySet="Usuarios" />
+        <AssociationSet Name="Inquilino_Solicitacoes" Association="IousAzure.Entidades.Inquilino_Solicitacoes">
+          <End Role="Inquilino_Solicitacoes_Source" EntitySet="Inquilinos" />
+          <End Role="Inquilino_Solicitacoes_Target" EntitySet="Solicitacoes" />
         </AssociationSet>
         <AssociationSet Name="SolicitacaoItem_Solicitacao" Association="IousAzure.Entidades.SolicitacaoItem_Solicitacao">
           <End Role="SolicitacaoItem_Solicitacao_Source" EntitySet="SolicitacaoItens" />
           <End Role="SolicitacaoItem_Solicitacao_Target" EntitySet="Solicitacoes" />
-        </AssociationSet>
-        <AssociationSet Name="Usuario_SolicitacoesDoUsuario" Association="IousAzure.Entidades.Usuario_SolicitacoesDoUsuario">
-          <End Role="Usuario_SolicitacoesDoUsuario_Source" EntitySet="Usuarios" />
-          <End Role="Usuario_SolicitacoesDoUsuario_Target" EntitySet="Solicitacoes" />
-        </AssociationSet>
-        <AssociationSet Name="Usuario_SolicitacoesAAvaliar" Association="IousAzure.Entidades.Usuario_SolicitacoesAAvaliar">
-          <End Role="Usuario_SolicitacoesAAvaliar_Source" EntitySet="Usuarios" />
-          <End Role="Usuario_SolicitacoesAAvaliar_Target" EntitySet="Solicitacoes" />
         </AssociationSet>
       </EntityContainer>
     </Schema>

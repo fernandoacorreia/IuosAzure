@@ -14,13 +14,10 @@ using IousAzure.TesteIntegrado.ReferenciaAoServico;
 
 namespace TesteIntegrado
 {
-    /// <summary>
-    /// Summary description for TesteDataService
-    /// </summary>
     [TestClass]
-    public class TesteDataService
+    public class TesteInquilinos
     {
-        private static readonly Uri serviceUri = new Uri("http://localhost:51048/WcfDataService1.svc/");
+        private static readonly Uri serviceUri = new Uri("http://localhost/IousAzure.Servico/WcfDataService1.svc/");
 
         [TestMethod]
         public void DeveIncluirInquilino()

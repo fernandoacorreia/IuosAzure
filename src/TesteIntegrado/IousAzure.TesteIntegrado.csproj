@@ -56,7 +56,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.datasvcmap</DependentUpon>
     </Compile>
-    <Compile Include="TesteDataService.cs" />
+    <Compile Include="TesteInquilinos.cs" />
+    <Compile Include="TesteSolicitacoes.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

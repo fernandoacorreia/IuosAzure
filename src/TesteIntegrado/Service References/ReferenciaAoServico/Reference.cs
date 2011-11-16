@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 // Original file name:
-// Generation date: 11/8/2011 11:16:12 AM
+// Generation date: 11/16/2011 12:36:33 PM
 namespace IousAzure.TesteIntegrado.ReferenciaAoServico
 {
     
@@ -451,60 +451,6 @@ namespace IousAzure.TesteIntegrado.ReferenciaAoServico
         private int _InquilinoId;
         partial void OnInquilinoIdChanging(int value);
         partial void OnInquilinoIdChanged();
-        /// <summary>
-        /// There are no comments for Inquilino in the schema.
-        /// </summary>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public Inquilino Inquilino
-        {
-            get
-            {
-                return this._Inquilino;
-            }
-            set
-            {
-                this._Inquilino = value;
-                this.OnPropertyChanged("Inquilino");
-            }
-        }
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private Inquilino _Inquilino;
-        /// <summary>
-        /// There are no comments for SolicitacoesDoUsuario in the schema.
-        /// </summary>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<Solicitacao> SolicitacoesDoUsuario
-        {
-            get
-            {
-                return this._SolicitacoesDoUsuario;
-            }
-            set
-            {
-                this._SolicitacoesDoUsuario = value;
-                this.OnPropertyChanged("SolicitacoesDoUsuario");
-            }
-        }
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<Solicitacao> _SolicitacoesDoUsuario = new global::System.Data.Services.Client.DataServiceCollection<Solicitacao>(null, System.Data.Services.Client.TrackingMode.None);
-        /// <summary>
-        /// There are no comments for SolicitacoesAAvaliar in the schema.
-        /// </summary>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<Solicitacao> SolicitacoesAAvaliar
-        {
-            get
-            {
-                return this._SolicitacoesAAvaliar;
-            }
-            set
-            {
-                this._SolicitacoesAAvaliar = value;
-                this.OnPropertyChanged("SolicitacoesAAvaliar");
-            }
-        }
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<Solicitacao> _SolicitacoesAAvaliar = new global::System.Data.Services.Client.DataServiceCollection<Solicitacao>(null, System.Data.Services.Client.TrackingMode.None);
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -533,17 +479,17 @@ namespace IousAzure.TesteIntegrado.ReferenciaAoServico
         /// <param name="inquilinoId">Initial value of InquilinoId.</param>
         /// <param name="usuarioSolicitanteId">Initial value of UsuarioSolicitanteId.</param>
         /// <param name="usuarioAvaliadorId">Initial value of UsuarioAvaliadorId.</param>
-        /// <param name="data">Initial value of Data.</param>
+        /// <param name="criacao">Initial value of Criacao.</param>
         /// <param name="valorTotal">Initial value of ValorTotal.</param>
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public static Solicitacao CreateSolicitacao(int ID, int inquilinoId, int usuarioSolicitanteId, int usuarioAvaliadorId, global::System.DateTime data, decimal valorTotal)
+        public static Solicitacao CreateSolicitacao(int ID, int inquilinoId, int usuarioSolicitanteId, int usuarioAvaliadorId, global::System.DateTime criacao, decimal valorTotal)
         {
             Solicitacao solicitacao = new Solicitacao();
             solicitacao.Id = ID;
             solicitacao.InquilinoId = inquilinoId;
             solicitacao.UsuarioSolicitanteId = usuarioSolicitanteId;
             solicitacao.UsuarioAvaliadorId = usuarioAvaliadorId;
-            solicitacao.Data = data;
+            solicitacao.Criacao = criacao;
             solicitacao.ValorTotal = valorTotal;
             return solicitacao;
         }
@@ -636,27 +582,27 @@ namespace IousAzure.TesteIntegrado.ReferenciaAoServico
         partial void OnUsuarioAvaliadorIdChanging(int value);
         partial void OnUsuarioAvaliadorIdChanged();
         /// <summary>
-        /// There are no comments for Property Data in the schema.
+        /// There are no comments for Property Criacao in the schema.
         /// </summary>
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.DateTime Data
+        public global::System.DateTime Criacao
         {
             get
             {
-                return this._Data;
+                return this._Criacao;
             }
             set
             {
-                this.OnDataChanging(value);
-                this._Data = value;
-                this.OnDataChanged();
-                this.OnPropertyChanged("Data");
+                this.OnCriacaoChanging(value);
+                this._Criacao = value;
+                this.OnCriacaoChanged();
+                this.OnPropertyChanged("Criacao");
             }
         }
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.DateTime _Data;
-        partial void OnDataChanging(global::System.DateTime value);
-        partial void OnDataChanged();
+        private global::System.DateTime _Criacao;
+        partial void OnCriacaoChanging(global::System.DateTime value);
+        partial void OnCriacaoChanged();
         /// <summary>
         /// There are no comments for Property Descricao in the schema.
         /// </summary>
@@ -723,78 +669,6 @@ namespace IousAzure.TesteIntegrado.ReferenciaAoServico
         private decimal _ValorTotal;
         partial void OnValorTotalChanging(decimal value);
         partial void OnValorTotalChanged();
-        /// <summary>
-        /// There are no comments for Inquilino in the schema.
-        /// </summary>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public Inquilino Inquilino
-        {
-            get
-            {
-                return this._Inquilino;
-            }
-            set
-            {
-                this._Inquilino = value;
-                this.OnPropertyChanged("Inquilino");
-            }
-        }
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private Inquilino _Inquilino;
-        /// <summary>
-        /// There are no comments for UsuarioSolicitante in the schema.
-        /// </summary>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public Usuario UsuarioSolicitante
-        {
-            get
-            {
-                return this._UsuarioSolicitante;
-            }
-            set
-            {
-                this._UsuarioSolicitante = value;
-                this.OnPropertyChanged("UsuarioSolicitante");
-            }
-        }
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private Usuario _UsuarioSolicitante;
-        /// <summary>
-        /// There are no comments for UsuarioAvaliador in the schema.
-        /// </summary>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public Usuario UsuarioAvaliador
-        {
-            get
-            {
-                return this._UsuarioAvaliador;
-            }
-            set
-            {
-                this._UsuarioAvaliador = value;
-                this.OnPropertyChanged("UsuarioAvaliador");
-            }
-        }
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private Usuario _UsuarioAvaliador;
-        /// <summary>
-        /// There are no comments for Itens in the schema.
-        /// </summary>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.Data.Services.Client.DataServiceCollection<SolicitacaoItem> Itens
-        {
-            get
-            {
-                return this._Itens;
-            }
-            set
-            {
-                this._Itens = value;
-                this.OnPropertyChanged("Itens");
-            }
-        }
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.Data.Services.Client.DataServiceCollection<SolicitacaoItem> _Itens = new global::System.Data.Services.Client.DataServiceCollection<SolicitacaoItem>(null, System.Data.Services.Client.TrackingMode.None);
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]

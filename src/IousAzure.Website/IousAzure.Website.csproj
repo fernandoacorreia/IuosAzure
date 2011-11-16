@@ -52,6 +52,7 @@
   <ItemGroup>
     <Content Include="index.htm" />
     <Content Include="Scripts\datajs-1.0.2.min.js" />
+    <Content Include="Scripts\date.js" />
     <Content Include="Scripts\IousAzure.js" />
     <Content Include="Scripts\jquery-1.7.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.16.custom.min.js" />

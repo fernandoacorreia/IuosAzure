@@ -9,9 +9,7 @@
     <div class="page">
         <div class="header">
             <div class="title">
-                <h1>
-                    IousAzure
-                </h1>
+                <h1>Solicitações</h1>
             </div>
             <div class="loginDisplay"></div>
             <div class="clear hideSkiplink"></div>
@@ -27,24 +25,31 @@
 	            </fieldset>
 	            </form>
             </div>
+            <div id="painel_selecao" class="ui_widget">
+            <select id="visao_a_mostrar">
+                <option value="mostrar_minhas" selected="selected">Minhas</option>
+                <option value="mostrar_a_aprovar">A aprovar</option>
+            </select>
+            </div>
             <div id="minhas_solicitacoes" class="ui_widget">
-	            <h1>Minhas solicitações:</h1>
 	            <table id="minhas_solicitacoes" class="ui_widget ui_widget_content">
 			            <tr class="ui_widget_header ">
-				            <th>Data</th>
+				            <th>Criação</th>
 				            <th>Descrição</th>
 				            <th>Valor total</th>
                             <th>Situação</th>
-			            </tr>			            
+                            <th>Ações</th>
+			            </tr>
 	            </table>
-                <button id="criar_solicitacao">Criar solicitação</button>
-                <button id="atualizar_solicitacoes">Atualizar</button>
                 <span id="carregando_solicitacoes" style="display:none">Carregando...</span>
             </div>
+            <button id="criar_solicitacao">Criar solicitação</button>
+            <button id="atualizar_solicitacoes">Atualizar</button>
         </div>
         <div class="clear"></div>
         <div class="footer"></div>
     </div>
+    <script type="text/javascript" src="Scripts/date.js"></script>
     <script type="text/javascript" src="Scripts/jquery-1.7.min.js"></script>
     <script type="text/javascript" src="Scripts/jquery-ui-1.8.16.custom.min.js"></script>
     <script type="text/javascript" src="Scripts/datajs-1.0.2.min.js"></script>
