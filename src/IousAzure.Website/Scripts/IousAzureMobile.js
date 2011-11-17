@@ -3,6 +3,7 @@ var SERVICO_SOLICITACOES = URI_BASE_SERVICO + "/Solicitacoes";
 
 function Atualizar() {
     $("#lista_solicitacoes").hide();
+    $("#nenhuma").hide();
     $("#carregando").show();
     $('.pagina_solicitacao').remove();
     $('.item_solicitacao').remove();
@@ -17,13 +18,17 @@ function ObterSolicitacoes() {
 }
 
 function SucessoAoObterSolicitacoes(data, response) {
-    AplicarTemplate(data.results)
+    if (data.results.length == 0) {
+        $("#nenhuma").show();
+    } else {
+        AplicarTemplate(data.results)
+    }
     $("#carregando").hide();
 }
 
 function AplicarTemplate(data) {
-    var templateLista = 
-        "<li class=\"item_solicitacao\">" +
+    var templateLista =
+        "<li class=\"item_solicitacao\" id=\"item_solicitacao${Id}\">" +
         "<a href=\"#solicitacao${Id}\" data-transition=\"slide\">" +
         "<h3>${Descricao}</h3>" +
         "<p>R$ {{html parseFloat(ValorTotal).toFixed(2) }}</p>" +
@@ -40,12 +45,44 @@ function AplicarTemplate(data) {
         "        <h1>R$ {{html parseFloat(ValorTotal).toFixed(2) }}</h1>" +
         "        <p>${Criacao.toString('d-MMM-yyyy HH:mm')}</p>" +
         "        <br>" +
-        "        <a href=\"#home\" data-role=\"button\" data-icon=\"check\" data-inline=\"true\">Aprovar</a> " +
-        "        <a href=\"#home\" data-role=\"button\" data-icon=\"delete\" data-inline=\"true\">Rejeitar</a> " +
+        "        <a href=\"javascript:Aprovar(${Id})\" class=\"botao_aprovar\" data-role=\"button\" data-icon=\"check\" data-inline=\"true\">Aprovar</a> " +
+        "        <a href=\"javascript:Rejeitar(${Id})\" class=\"botao_rejeitar\" data-role=\"button\" data-icon=\"delete\" data-inline=\"true\">Rejeitar</a> " +
         "    </div>" +
         "</div>";
     $.tmpl(templatePaginas, data).appendTo("body");
     $("#lista_solicitacoes").show();
+}
+
+function Aprovar(solicitacaoId) {
+    AtualizarSolicitacao(solicitacaoId, "APROVADA");
+
+}
+
+function Rejeitar(solicitacaoId) {
+    AtualizarSolicitacao(solicitacaoId, "REJEITADA");
+}
+
+function AtualizarSolicitacao(solicitacaoId, situacao) {
+    var requestOptions = {
+        requestUri: SERVICO_SOLICITACOES + "(" + solicitacaoId + ")",
+        method: "MERGE",
+        data: { Situacao: situacao }
+    };
+    OData.request(requestOptions, SucessoOperacaoSolicitacao, ErroOperacaoSolicitacao);
+}
+
+function SucessoOperacaoSolicitacao(data, response) {
+    var id_item = "#item_" + $.mobile.activePage.data("url");
+    $(id_item).remove();
+    var quantidadeItems = $("#lista_solicitacoes li").length;
+    if (quantidadeItems == 0) {
+        $("#nenhuma").show();
+    }
+    $.mobile.changePage("#home", { reverse: true });
+}
+
+function ErroOperacaoSolicitacao(error) {
+    alert(error.message)
 }
 
 $("#home").live('pageinit', function () {

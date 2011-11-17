@@ -337,7 +337,7 @@ function AbrirDialogoOperacaoSolicitacao(nomeOperacao, solicitacaoId, nomeAcao, 
 }
 
 // Lida com evento de sucesso em operação na solicitação.
-function SucessoOperacaoSolicitacao() {
+function SucessoOperacaoSolicitacao(data, response) {
     dialogoExclusao.dialog('close');
     ObterSolicitacoes();
 }
