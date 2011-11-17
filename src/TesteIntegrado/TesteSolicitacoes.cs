@@ -17,7 +17,8 @@ namespace IousAzure.TesteIntegrado
         {
             ContextoBd contextoBd = new ContextoBd(serviceUri);
             string descricao = "Solicitação teste " + System.Guid.NewGuid();
-            Solicitacao novaSolicitacao = new Solicitacao { Descricao = descricao };
+            Solicitacao novaSolicitacao = new Solicitacao { Descricao = descricao, 
+                                                            ValorTotal = new Random().Next(1,10000) };
 
             contextoBd.AddToSolicitacoes(novaSolicitacao);
             contextoBd.SaveChanges();

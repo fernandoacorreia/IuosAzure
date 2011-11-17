@@ -6,7 +6,9 @@ var SERVICO_SOLICITACOES = URI_BASE_SERVICO + "/Solicitacoes";
 
 // Variáveis do formulário de solicitação.
 var descricao = $("#descricao"),
-    allFields = $([]).add(descricao);
+    valor_total = $("#valor_total"),
+    todosCampos = $([]).add(descricao).add(valor_total),
+	mensagem = $("#mensagem");
 
 // Diálogo de exclusão de solicitação
 var dialogoExclusao = null;
@@ -42,11 +44,11 @@ function OnPageLoad() {
     $("#visao_a_mostrar").change(VisaoAlterada);
     $("#formulario_solicitacao").dialog({
         autoOpen: false,
-        height: 375,
+        height: 400,
         width: 450,
         modal: true,
         close: function () {
-            allFields.val("").removeClass("ui-state-error");
+            todosCampos.val("").removeClass("ui-state-error");
         }
     });
     OData.read(URI_METADATA, function (metadata, response) {
@@ -93,7 +95,7 @@ function AplicarTemplate(data) {
     var template = "<tr id=\"solicitacao_${Id}\">" +
                    "<td>${Criacao.toString('d-MMM-yyyy HH:mm')}</td>" +
                    "<td>${Descricao}</td>" +
-                   "<td>${ValorTotal}</td>" +
+                   "<td>{{html parseFloat(ValorTotal).toFixed(2) }}</td>" +
                    "<td>${Situacao}</td>" +
                    "<td>" +
                    "{{html visaoSelecionada.acoes(Id) }}" +
@@ -107,6 +109,7 @@ function AplicarTemplate(data) {
 // Prepara o diálogo de nova solicitação.
 function AbrirDialogoNovaSolicitacao() {
     $("#formulario_solicitacao").dialog("option", "title", "Nova solicitação");
+    mensagem.text("Todos os campos são obrigatórios.").removeClass("ui-state-highlight");
     $("#formulario_solicitacao").dialog("option", "buttons", [
         {
             text: "Salvar",
@@ -127,14 +130,10 @@ function AbrirDialogoNovaSolicitacao() {
     $("#formulario_solicitacao").dialog("open");
 }
 
-function ValidarSolicitacao() {
-    return true;  // TODO: implementar validação
-}
-
 // Comanda a inclusão de uma nova solicitação.
 function IncluirSolicitacao() {
     $("#carregando").show();
-    var novaSolicitacao = { Descricao: $("#descricao").val() };
+    var novaSolicitacao = { Descricao: $("#descricao").val(), ValorTotal: $("#valor_total").val() };
     var requestOptions = {
         requestUri: SERVICO_SOLICITACOES,
         method: "POST",
@@ -163,7 +162,9 @@ function AbrirDialogoAlteracaoSolicitacao(solicitacaoId) {
     $("#carregando").hide();
     var cells = $("#solicitacao_" + solicitacaoId).children("td");
     $("#descricao").val(cells.eq(1).text());
+    $("#valor_total").val(cells.eq(2).text());
     $("#formulario_solicitacao").dialog("option", "title", "Atualizar solicitação");
+    mensagem.text("Todos os campos são obrigatórios.").removeClass("ui-state-highlight");
     $("#formulario_solicitacao").dialog("option", "buttons", [
         {
             text: "Salvar",
@@ -188,7 +189,7 @@ function AbrirDialogoAlteracaoSolicitacao(solicitacaoId) {
 // Comanda a atualização de uma solicitação.
 function AtualizarSolicitacao(solicitacaoId) {
     $("#carregando").show();
-    var dadosSolicitacao = { Descricao: $("#descricao").val() };
+    var dadosSolicitacao = { Descricao: $("#descricao").val(), ValorTotal: $("#valor_total").val() };
     var requestOptions = {
         requestUri: SERVICO_SOLICITACOES + "(" + solicitacaoId + ")",
         method: "MERGE",  // http://msdn.microsoft.com/en-us/library/dd541276(v=PROT.10).aspx
@@ -208,6 +209,48 @@ function SucessoAoAlterarSolicitacao(data, response) {
 function ErroAoAlterarSolicitacao(error) {
     alert("Erro: " + error.message)
     $("#formulario_solicitacao").dialog("close");
+}
+
+// ********** VALIDAÇÃO **********
+
+function ValidarSolicitacao() {
+    var isValid = true;
+    todosCampos.removeClass("ui-state-error");
+    isValid = isValid && VerificarTamanho(descricao, "descrição", 10, 1000);
+    isValid = isValid && VerificarTamanho(valor_total, "valor total", 1, 15);
+    isValid = isValid && VerificarPadrao(valor_total, /^([0-9.])+$/, "O campo valor total somente aceita dígitos e ponto decimal.");
+    return isValid;
+}
+
+function VerificarTamanho(o, n, min, max) {
+    if (o.val().length > max || o.val().length < min) {
+        o.addClass("ui-state-error");
+        AtualizarMensagem("O tamanho do campo " + n + " deve estar entre " + min + " e " + max + ".");
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+function VerificarPadrao(o, regexp, n) {
+    if (!(regexp.test(o.val()))) {
+        o.addClass("ui-state-error");
+        AtualizarMensagem(n);
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+function AtualizarMensagem(t) {
+    mensagem
+        .text(t)
+        .addClass("ui-state-highlight");
+    setTimeout(function () {
+        mensagem.removeClass("ui-state-highlight"); 
+    }, 1000);
 }
 
 // ********** EXCLUSÃO DE SOLICITAÇÃO **********

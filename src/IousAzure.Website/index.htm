@@ -16,11 +16,13 @@
         </div>
         <div class="main">
             <div id="formulario_solicitacao" title="Nova solicitação">
-	            <p class="validateTips">Todos os campos são obrigatórios.</p>
+	            <p id="mensagem"></p>
 	            <form>
 	            <fieldset>
 		            <label for="descricao">Descrição</label>
                     <textarea name="descricao" id="descricao" multiline=true cols=40 rows=4 class="ui_widget_content ui_corner_all"></textarea>
+		            <label for="name">Valor total</label>
+		            <input type="text" name="valor_total" id="valor_total" class="text ui-widget-content ui-corner-all" />
                     <div id="carregando" style="display:none">Carregando...</div>
 	            </fieldset>
 	            </form>
