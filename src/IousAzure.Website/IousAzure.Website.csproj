@@ -51,12 +51,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.htm" />
+    <Content Include="mobile.htm" />
     <Content Include="Scripts\datajs-1.0.2.min.js" />
     <Content Include="Scripts\date.js" />
     <Content Include="Scripts\IousAzure.js" />
+    <Content Include="Scripts\IousAzureMobile.js" />
     <Content Include="Scripts\jquery-1.7.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.16.custom.min.js" />
+    <Content Include="Scripts\jquery.mobile-1.0.min.js" />
     <Content Include="Scripts\jquery.tmpl.min.js" />
+    <Content Include="Styles\images\ajax-loader.png" />
+    <Content Include="Styles\images\icons-18-black.png" />
+    <Content Include="Styles\images\icons-18-white.png" />
+    <Content Include="Styles\images\icons-36-black.png" />
+    <Content Include="Styles\images\icons-36-white.png" />
+    <Content Include="Styles\jquery.mobile-1.0.min.css" />
     <Content Include="Styles\redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Styles\redmond\images\ui-bg_flat_55_fbec88_40x100.png" />
     <Content Include="Styles\redmond\images\ui-bg_glass_75_d0e5f5_1x400.png" />
