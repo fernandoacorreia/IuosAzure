@@ -55,3 +55,23 @@ Estrutura da Solução
 * _IousAzure.Servico:_ Serviço de aplicação.
 * _IousAzure.TesteIntegrado:_ Testes de integração.
 * _IousAzure.Website:_ Aplicativos clientes.
+
+Limitações
+----------
+
+Esta é uma prova de conceito, não uma aplicação apta para produção.
+
+Estas são algumas das principais limitações, entre outras:
+
+### Limitações de requisitos funcionais
+
+* As funcionalidades de negócio são restritas ao mínimo necessário para demonstração.
+* Não foi implementada a especificação dos itens de despesa.
+* Não é mantido registro das operações para auditoria.
+* Não há autenticação de usuários.
+
+### Limitações de requisitos não funcionais
+
+* Não há qualquer verificação de segurança ou permissão.
+* Não há restrição de acesso a dados de outros inquilinos.
+* Não há suporte a particionamento (sharding) da base de dados.
