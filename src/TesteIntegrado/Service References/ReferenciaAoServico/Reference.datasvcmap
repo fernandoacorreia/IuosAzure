@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="56141527-da31-4ec3-81e2-667aceee0b30" xmlns="urn:schemas-microsoft-com:xml-dataservicemap">
   <MetadataSources>
-    <MetadataSource Address="http://localhost/IousAzure.Servico/WcfDataService1.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost/IuosAzure.Servico/WcfDataService1.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.edmx" MetadataType="Edmx" ID="eb4f818b-06de-4f54-961f-625564983b94" SourceId="1" SourceUrl="http://localhost/IousAzure.Servico/WcfDataService1.svc" />
+    <MetadataFile FileName="service.edmx" MetadataType="Edmx" ID="eb4f818b-06de-4f54-961f-625564983b94" SourceId="1" SourceUrl="http://localhost/IuosAzure.Servico/WcfDataService1.svc" />
   </Metadata>
   <Extensions />
   <Parameters>

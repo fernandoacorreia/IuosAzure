@@ -9,8 +9,8 @@
 //------------------------------------------------------------------------------
 
 // Original file name:
-// Generation date: 11/16/2011 12:36:33 PM
-namespace IousAzure.TesteIntegrado.ReferenciaAoServico
+// Generation date: 11/18/2011 8:34:58 PM
+namespace IuosAzure.TesteIntegrado.ReferenciaAoServico
 {
     
     /// <summary>
@@ -38,9 +38,9 @@ namespace IousAzure.TesteIntegrado.ReferenciaAoServico
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         protected global::System.Type ResolveTypeFromName(string typeName)
         {
-            if (typeName.StartsWith("IousAzure.Entidades", global::System.StringComparison.Ordinal))
+            if (typeName.StartsWith("IuosAzure.Entidades", global::System.StringComparison.Ordinal))
             {
-                return this.GetType().Assembly.GetType(string.Concat("IousAzure.TesteIntegrado.ReferenciaAoServico", typeName.Substring(19)), false);
+                return this.GetType().Assembly.GetType(string.Concat("IuosAzure.TesteIntegrado.ReferenciaAoServico", typeName.Substring(19)), false);
             }
             return null;
         }
@@ -52,9 +52,9 @@ namespace IousAzure.TesteIntegrado.ReferenciaAoServico
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         protected string ResolveNameFromType(global::System.Type clientType)
         {
-            if (clientType.Namespace.Equals("IousAzure.TesteIntegrado.ReferenciaAoServico", global::System.StringComparison.Ordinal))
+            if (clientType.Namespace.Equals("IuosAzure.TesteIntegrado.ReferenciaAoServico", global::System.StringComparison.Ordinal))
             {
-                return string.Concat("IousAzure.Entidades.", clientType.Name);
+                return string.Concat("IuosAzure.Entidades.", clientType.Name);
             }
             return null;
         }
@@ -185,7 +185,7 @@ namespace IousAzure.TesteIntegrado.ReferenciaAoServico
         }
     }
     /// <summary>
-    /// There are no comments for IousAzure.Entidades.Inquilino in the schema.
+    /// There are no comments for IuosAzure.Entidades.Inquilino in the schema.
     /// </summary>
     /// <KeyProperties>
     /// Id
@@ -297,7 +297,7 @@ namespace IousAzure.TesteIntegrado.ReferenciaAoServico
         }
     }
     /// <summary>
-    /// There are no comments for IousAzure.Entidades.Usuario in the schema.
+    /// There are no comments for IuosAzure.Entidades.Usuario in the schema.
     /// </summary>
     /// <KeyProperties>
     /// Id
@@ -463,7 +463,7 @@ namespace IousAzure.TesteIntegrado.ReferenciaAoServico
         }
     }
     /// <summary>
-    /// There are no comments for IousAzure.Entidades.Solicitacao in the schema.
+    /// There are no comments for IuosAzure.Entidades.Solicitacao in the schema.
     /// </summary>
     /// <KeyProperties>
     /// Id
@@ -681,7 +681,7 @@ namespace IousAzure.TesteIntegrado.ReferenciaAoServico
         }
     }
     /// <summary>
-    /// There are no comments for IousAzure.Entidades.SolicitacaoItem in the schema.
+    /// There are no comments for IuosAzure.Entidades.SolicitacaoItem in the schema.
     /// </summary>
     /// <KeyProperties>
     /// Id
@@ -871,7 +871,7 @@ namespace IousAzure.TesteIntegrado.ReferenciaAoServico
         }
     }
     /// <summary>
-    /// There are no comments for IousAzure.Entidades.EdmMetadata in the schema.
+    /// There are no comments for IuosAzure.Entidades.EdmMetadata in the schema.
     /// </summary>
     /// <KeyProperties>
     /// Id

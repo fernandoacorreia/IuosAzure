@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using IousAzure.TesteIntegrado.ReferenciaAoServico;
+using IuosAzure.TesteIntegrado.ReferenciaAoServico;
 
-namespace IousAzure.TesteIntegrado
+namespace IuosAzure.TesteIntegrado
 {
     [TestClass]
     public class TesteSolicitacoes
     {
-        private static readonly Uri serviceUri = new Uri("http://localhost/IousAzure.Servico/WcfDataService1.svc/");
+        private static readonly Uri serviceUri = new Uri("http://localhost/IuosAzure.Servico/WcfDataService1.svc/");
 
         [TestMethod]
         public void DeveIncluirSolicitacao()

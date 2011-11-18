@@ -1,6 +1,8 @@
 ﻿IuosAzure
 =========
 
+*Interface de usuário orientada a serviço.*
+
 Prova de conceito de arquitetura de software como serviço para a plataforma Windows Azure.
 
 Copyright 2011, Fernando de Alcântara Correia (@facorreia).
@@ -8,7 +10,6 @@ Todos os direitos reservados.
 
 Licença de uso: GNU Affero General Public License, version 3.
 Ver arquivo "LICENSE.TXT".
-
 
 Histórias
 ---------
@@ -49,12 +50,12 @@ Aplicativo JavaScript implementado com JQuery Mobile e datajs que utiliza o serv
 Estrutura da Solução
 --------------------
 
-* _IousAzure.Database:_ Projeto para criar a base de dados.
-* _IousAzure.Entidades:_ Entidades e persistência.
-* _IousAzure.Principal:_ Serviço do Windows Azure.
-* _IousAzure.Servico:_ Serviço de aplicação.
-* _IousAzure.TesteIntegrado:_ Testes de integração.
-* _IousAzure.Website:_ Aplicativos clientes.
+* _IuosAzure.Database:_ Projeto para criar a base de dados.
+* _IuosAzure.Entidades:_ Entidades e persistência.
+* _IuosAzure.Principal:_ Serviço do Windows Azure.
+* _IuosAzure.Servico:_ Serviço de aplicação.
+* _IuosAzure.TesteIntegrado:_ Testes de integração.
+* _IuosAzure.Website:_ Aplicativos clientes.
 
 Limitações
 ----------

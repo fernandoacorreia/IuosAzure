@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "IousAzure.Principal", "IousAzure.Principal\IousAzure.Principal.ccproj", "{5BEF08BC-E6F2-459C-8540-B20670481666}"
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "IuosAzure.Principal", "IuosAzure.Principal\IuosAzure.Principal.ccproj", "{5BEF08BC-E6F2-459C-8540-B20670481666}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IousAzure.Servico", "IousAzure.Servico\IousAzure.Servico.csproj", "{06E21DBF-BBE2-4F02-B37E-D48A502900F1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IuosAzure.Servico", "IuosAzure.Servico\IuosAzure.Servico.csproj", "{06E21DBF-BBE2-4F02-B37E-D48A502900F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IousAzure.Entidades", "IousAzure.Entidades\IousAzure.Entidades.csproj", "{A6AE8E3B-47F6-4A84-8F3D-D93327468899}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IuosAzure.Entidades", "IuosAzure.Entidades\IuosAzure.Entidades.csproj", "{A6AE8E3B-47F6-4A84-8F3D-D93327468899}"
 EndProject
-Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "IousAzure.Database", "IousAzure.Database\IousAzure.Database.dbproj", "{67CBC824-A49E-4E9B-A947-360F3DFE65C3}"
+Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "IuosAzure.Database", "IuosAzure.Database\IuosAzure.Database.dbproj", "{67CBC824-A49E-4E9B-A947-360F3DFE65C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IousAzure.TesteIntegrado", "TesteIntegrado\IousAzure.TesteIntegrado.csproj", "{7377D7E1-45BF-440F-A888-48A21E1F58C7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IuosAzure.TesteIntegrado", "TesteIntegrado\IuosAzure.TesteIntegrado.csproj", "{7377D7E1-45BF-440F-A888-48A21E1F58C7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9F5E0429-84F5-4EAF-93C4-D97D3B99F50E}"
 	ProjectSection(SolutionItems) = preProject
@@ -18,7 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IousAzure.Website", "IousAzure.Website\IousAzure.Website.csproj", "{5FE53817-71B0-499F-AE57-CC56E24A928D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IuosAzure.Website", "IuosAzure.Website\IuosAzure.Website.csproj", "{5FE53817-71B0-499F-AE57-CC56E24A928D}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution

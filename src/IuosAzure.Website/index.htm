@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>IuosAzure</title>
+    <link href="Styles/Site.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/redmond/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>Solicitações</h1>
+            </div>
+            <div class="loginDisplay"></div>
+            <div class="clear hideSkiplink"></div>
+        </div>
+        <div class="main">
+            <div id="formulario_solicitacao" title="Nova solicitação">
+	            <p id="mensagem"></p>
+	            <form>
+	            <fieldset>
+		            <label for="descricao">Descrição</label>
+                    <textarea name="descricao" id="descricao" multiline=true cols=40 rows=4 class="ui_widget_content ui_corner_all"></textarea>
+		            <label for="name">Valor total</label>
+		            <input type="text" name="valor_total" id="valor_total" class="text ui-widget-content ui-corner-all" />
+                    <div id="carregando" style="display:none">Carregando...</div>
+	            </fieldset>
+	            </form>
+            </div>
+            <div id="area_lista" style="display:none">
+                <div id="painel_selecao" class="ui_widget">
+                <select id="visao_a_mostrar">
+                    <option value="mostrar_minhas" selected="selected">Minhas</option>
+                    <option value="mostrar_a_aprovar">A aprovar</option>
+                </select>
+                </div>
+                <div id="minhas_solicitacoes" class="ui_widget">
+	                <table id="minhas_solicitacoes" class="ui_widget ui_widget_content">
+			                <tr class="ui_widget_header ">
+				                <th>Criação</th>
+				                <th>Descrição</th>
+				                <th>Valor total</th>
+                                <th>Situação</th>
+                                <th>Ações</th>
+			                </tr>
+	                </table>
+                </div>
+            </div>
+            <div id="botoes">
+                <button id="criar_solicitacao">Criar solicitação</button>
+                <button id="atualizar_solicitacoes">Atualizar</button>
+            </div>
+            <div id="carregando_solicitacoes"><p>Carregando...</p></div>
+        </div>
+        <div class="clear"></div>
+        <div class="footer"></div>
+    </div>
+    <script type="text/javascript" src="Scripts/date.js"></script>
+    <script type="text/javascript" src="Scripts/jquery-1.7.min.js"></script>
+    <script type="text/javascript" src="Scripts/jquery-ui-1.8.16.custom.min.js"></script>
+    <script type="text/javascript" src="Scripts/datajs-1.0.2.min.js"></script>
+    <script type="text/javascript" src="Scripts/jquery.tmpl.min.js"></script>
+    <script type="text/javascript" src="Scripts/IuosAzure.js"></script>
+    <script type="text/javascript">
+        $(OnPageLoad)
+    </script>
+</body>
+</html>

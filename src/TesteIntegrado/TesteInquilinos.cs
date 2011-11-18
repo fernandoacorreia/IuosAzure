@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading;
 using System.ServiceModel.Web;
 using System.Data.Services.Client;
-using IousAzure.TesteIntegrado.ReferenciaAoServico;
+using IuosAzure.TesteIntegrado.ReferenciaAoServico;
 
 // VER MAIS EXEMPLOS DE CÓDIGO EM:
 // http://aspdotnetcode.source-of-humor.com/Articles/WCF-WebServices/ConsumingWCFDataServiceEntityDataModel.aspx
@@ -17,7 +17,7 @@ namespace TesteIntegrado
     [TestClass]
     public class TesteInquilinos
     {
-        private static readonly Uri serviceUri = new Uri("http://localhost/IousAzure.Servico/WcfDataService1.svc/");
+        private static readonly Uri serviceUri = new Uri("http://localhost/IuosAzure.Servico/WcfDataService1.svc/");
 
         [TestMethod]
         public void DeveIncluirInquilino()
