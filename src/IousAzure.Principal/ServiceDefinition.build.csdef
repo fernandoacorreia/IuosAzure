@@ -9,9 +9,10 @@
   **********************************************************************************************
 -->
 <ServiceDefinition name="IousAzure.Principal" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
-  <WebRole name="IousAzure.Servico" vmsize="Small">
+  <WebRole name="IousAzure.Website" vmsize="Small">
     <Sites>
       <Site name="Web">
+        <VirtualApplication name="IousAzure.Servico" physicalDirectory="../IousAzure.Servico" />
         <Bindings>
           <Binding name="Endpoint1" endpointName="Endpoint1" />
         </Bindings>
@@ -23,8 +24,5 @@
     <Imports>
       <Import moduleName="Diagnostics" />
     </Imports>
-    <LocalResources>
-      <LocalStorage name="IousAzure.Servico.svclog" sizeInMB="1000" cleanOnRoleRecycle="false" />
-    </LocalResources>
   </WebRole>
 </ServiceDefinition>

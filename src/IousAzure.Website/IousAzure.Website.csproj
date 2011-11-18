@@ -51,7 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.htm" />
-    <Content Include="mobile.htm" />
+    <Content Include="m\index.htm" />
     <Content Include="Scripts\datajs-1.0.2.min.js" />
     <Content Include="Scripts\date.js" />
     <Content Include="Scripts\IousAzure.js" />

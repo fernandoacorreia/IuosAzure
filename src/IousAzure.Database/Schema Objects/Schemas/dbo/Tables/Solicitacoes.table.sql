@@ -4,7 +4,7 @@
 	InquilinoId int NOT NULL,
 	UsuarioSolicitanteId int NOT NULL,
 	UsuarioAvaliadorId int NULL,
-	Data date NOT NULL,
+	Criacao datetime2 NOT NULL,
 	Descricao ntext NOT NULL,
 	Situacao nvarchar(202) NOT NULL,
 	ValorTotal money NOT NULL,

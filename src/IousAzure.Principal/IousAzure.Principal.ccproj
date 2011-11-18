@@ -37,12 +37,12 @@
     <ServiceConfiguration Include="ServiceConfiguration.Cloud.cscfg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IousAzure.Servico\IousAzure.Servico.csproj">
-      <Name>IousAzure.Servico</Name>
-      <Project>{06e21dbf-bbe2-4f02-b37e-d48a502900f1}</Project>
+    <ProjectReference Include="..\IousAzure.Website\IousAzure.Website.csproj">
+      <Name>IousAzure.Website</Name>
+      <Project>{5fe53817-71b0-499f-ae57-cc56e24a928d}</Project>
       <Private>True</Private>
       <RoleType>Web</RoleType>
-      <RoleName>IousAzure.Servico</RoleName>
+      <RoleName>IousAzure.Website</RoleName>
       <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
     </ProjectReference>
   </ItemGroup>

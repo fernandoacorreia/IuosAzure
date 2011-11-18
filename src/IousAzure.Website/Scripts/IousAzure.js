@@ -189,7 +189,7 @@ function AbrirDialogoAlteracaoSolicitacao(solicitacaoId) {
 // Comanda a atualização de uma solicitação.
 function AtualizarSolicitacao(solicitacaoId) {
     $("#carregando").show();
-    var dadosSolicitacao = { Descricao: $("#descricao").val(), ValorTotal: $("#valor_total").val() };
+    var dadosSolicitacao = { Descricao: $("#descricao").val(), ValorTotal: $("#valor_total").val(), Situacao: "EM AVALIAÇÃO" };
     var requestOptions = {
         requestUri: SERVICO_SOLICITACOES + "(" + solicitacaoId + ")",
         method: "MERGE",  // http://msdn.microsoft.com/en-us/library/dd541276(v=PROT.10).aspx

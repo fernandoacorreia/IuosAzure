@@ -1,4 +1,4 @@
-﻿var URI_BASE_SERVICO = "/IousAzure.Servico/WcfDataService1.svc";
+﻿var URI_BASE_SERVICO = "../IousAzure.Servico/WcfDataService1.svc";
 var SERVICO_SOLICITACOES = URI_BASE_SERVICO + "/Solicitacoes";
 
 function Atualizar() {
