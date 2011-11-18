@@ -88,6 +88,7 @@ function SucessoAoObterSolicitacoes(data, response) {
     $("#carregando_solicitacoes").hide();
     $("#minhas_solicitacoes").find("tr:gt(0)").remove();
     AplicarTemplate(data.results);
+    $("#area_lista").show();
 }
 
 // Monta template da lista de solicitações.

@@ -27,26 +27,30 @@
 	            </fieldset>
 	            </form>
             </div>
-            <div id="painel_selecao" class="ui_widget">
-            <select id="visao_a_mostrar">
-                <option value="mostrar_minhas" selected="selected">Minhas</option>
-                <option value="mostrar_a_aprovar">A aprovar</option>
-            </select>
+            <div id="area_lista" style="display:none">
+                <div id="painel_selecao" class="ui_widget">
+                <select id="visao_a_mostrar">
+                    <option value="mostrar_minhas" selected="selected">Minhas</option>
+                    <option value="mostrar_a_aprovar">A aprovar</option>
+                </select>
+                </div>
+                <div id="minhas_solicitacoes" class="ui_widget">
+	                <table id="minhas_solicitacoes" class="ui_widget ui_widget_content">
+			                <tr class="ui_widget_header ">
+				                <th>Criação</th>
+				                <th>Descrição</th>
+				                <th>Valor total</th>
+                                <th>Situação</th>
+                                <th>Ações</th>
+			                </tr>
+	                </table>
+                </div>
             </div>
-            <div id="minhas_solicitacoes" class="ui_widget">
-	            <table id="minhas_solicitacoes" class="ui_widget ui_widget_content">
-			            <tr class="ui_widget_header ">
-				            <th>Criação</th>
-				            <th>Descrição</th>
-				            <th>Valor total</th>
-                            <th>Situação</th>
-                            <th>Ações</th>
-			            </tr>
-	            </table>
-                <span id="carregando_solicitacoes" style="display:none">Carregando...</span>
+            <div id="botoes">
+                <button id="criar_solicitacao">Criar solicitação</button>
+                <button id="atualizar_solicitacoes">Atualizar</button>
             </div>
-            <button id="criar_solicitacao">Criar solicitação</button>
-            <button id="atualizar_solicitacoes">Atualizar</button>
+            <div id="carregando_solicitacoes"><p>Carregando...</p></div>
         </div>
         <div class="clear"></div>
         <div class="footer"></div>
