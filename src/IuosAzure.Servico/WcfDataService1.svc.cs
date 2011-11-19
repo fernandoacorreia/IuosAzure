@@ -65,7 +65,7 @@ namespace IuosAzure.Servico
                 solicitacao.Criacao = System.DateTime.UtcNow;
                 solicitacao.UsuarioSolicitanteId = 1;  // Usuário fixo para demonstração
                 solicitacao.UsuarioAvaliadorId = 2;  // Usuário fixo para demonstração
-                solicitacao.Situacao = "EM AVALIAÇÃO";
+                solicitacao.Situacao = "AVALIANDO";
             }
         }
     }

@@ -24,7 +24,7 @@ var visoes = {
         }
     },
     "mostrar_a_aprovar": {
-        filtro: "Situacao eq 'EM AVALIAÇÃO'",
+        filtro: "Situacao eq 'AVALIANDO'",
         acoes: function (id) {
             return "<a href=\"javascript:AbrirDialogoAprovacaoSolicitacao(" + id + ")\">Aprovar</a>" +
                    " " +
@@ -190,7 +190,7 @@ function AbrirDialogoAlteracaoSolicitacao(solicitacaoId) {
 // Comanda a atualização de uma solicitação.
 function AtualizarSolicitacao(solicitacaoId) {
     $("#carregando").show();
-    var dadosSolicitacao = { Descricao: $("#descricao").val(), ValorTotal: $("#valor_total").val(), Situacao: "EM AVALIAÇÃO" };
+    var dadosSolicitacao = { Descricao: $("#descricao").val(), ValorTotal: $("#valor_total").val(), Situacao: "AVALIANDO" };
     var requestOptions = {
         requestUri: SERVICO_SOLICITACOES + "(" + solicitacaoId + ")",
         method: "MERGE",  // http://msdn.microsoft.com/en-us/library/dd541276(v=PROT.10).aspx

@@ -11,7 +11,7 @@ function Atualizar() {
 }
 
 function ObterSolicitacoes() {
-    var filtro = "Situacao eq 'EM AVALIAÇÃO'";
+    var filtro = "Situacao eq 'AVALIANDO'";
     var requestURI = SERVICO_SOLICITACOES + "?$filter=" + filtro;
     OData.jsonHandler.recognizeDates = true;
     OData.read(requestURI, SucessoAoObterSolicitacoes);
